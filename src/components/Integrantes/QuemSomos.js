@@ -58,6 +58,14 @@ const QuemSomos = () => {
 
       <h2>Participantes do Grupo</h2>
       <div className="representante">
+      <Member
+          name="Guilherme Raul Varella da Silva"
+          imgSrc="./guilherme.jpg"
+          altText="Guilherme Raul Varella da Silva"
+          aboutText={aboutGuilherme}
+          socialOnClick={() => { window.open('https://www.linkedin.com/in/guilhermervarella/', '_blank') }}
+        />
+        
         <Member
           name="Bruno Barbosa Braga dos Santos"
           imgSrc="./bruno.jpeg"
@@ -69,26 +77,13 @@ const QuemSomos = () => {
       <div className="outros-membros">
         
         <Member
-          name="Guilherme Raul Varella da Silva"
-          imgSrc="./guilherme.jpg"
-          altText="Guilherme Raul Varella da Silva"
-          aboutText={aboutGuilherme}
-          socialOnClick={() => { window.open('https://www.linkedin.com/in/guilhermervarella/', '_blank') }}
-        />
-        <Member
           name="Lucas Alves Quintela"
           imgSrc="./lucas.jpg"
           altText="Lucas Alves Quintela"
           aboutText={aboutLucas}
           socialOnClick={() => { window.open('https://www.instagram.com/lucas__quintela/', '_blank') }}
         />
-        <Member
-          name="Giovanna Tricerri"
-          imgSrc="./giovana.jpg"
-          altText="Giovanna Tricerri"
-          aboutOnClick={() => { /* função sobre para Giovanna */ }}
-          socialOnClick={() => { /* função da rede social para Giovanna */ }}
-        />
+      
       </div>
     </div>
   );

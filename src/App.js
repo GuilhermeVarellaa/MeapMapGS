@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, useLocation } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer'; // eslint-disable-line
 import QuemSomos from './components/Integrantes/QuemSomos';
 import Empresas from './components/Empresas/Empresas';
 import Noticias from './components/Noticias/Noticias';
@@ -35,7 +34,7 @@ function Page() {
         <Route path="/cadastro" component={Cadastro} />
         <Route path="/" component={Home} />
       </Switch>
-      <Footer />
+
     </>
   );
 }
