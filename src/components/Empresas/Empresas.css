@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+:root {
+  --cor-primaria: #007BFF;
+  --cor-secundaria: #0056b3;
+  --cor-texto-primaria: #333;
+  --cor-texto-secundaria: #666;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--cor-primaria);
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+.empresas-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.empresas-titulo {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--cor-texto-primaria);
+  text-align: center;
+}
+
+.empresa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.empresa:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.empresa-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  border: 5px solid var(--cor-primaria);
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+  transition: all 0.5s ease;
+}
+
+.empresa-logo:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+}
+
+
+.empresa-nome {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--cor-texto-primaria);
+  margin-bottom: 10px;
+}
+
+.empresa-descricao {
+  margin-top: 10px;
+  color: var(--cor-texto-secundaria);
+  line-height: 1.5;
+}
+
+.saber-mais {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--cor-primaria);
+  color: white;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.saber-mais:hover {
+  background-color: var(--cor-secundaria);
+  transform: scale(1.05);
+}
+
+.show-more {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.show-more.active {
+  max-height: 1000px;
+  opacity: 1;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.show-more p {
+  margin-bottom: 10px;
+}
+
+/* Estilos adicionais */
+.empresas-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.empresas-container.show-modal::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 600px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.empresas-container.show-modal .modal {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-logo {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.modal-nome {
+  font-size: 28px;
+}
+
+.modal-descricao {
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.modal-fechar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: var(--cor-texto-primaria);
+  cursor: pointer;
+}
+
+.modal-fechar:hover {
+  color: var(--cor-texto-secundaria);
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+  .empresa {
+    padding: 10px;
+  }
+
+  .empresa-logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .empresa-nome {
+    font-size: 20px;
+  }
+
+  .empresa-descricao {
+    font-size: 14px;
+  }
+
+  .saber-mais {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .modal {
+    padding: 10px;
+  }
+
+  .modal-logo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .modal-nome {
+    font-size: 24px;
+  }
+
+  .modal-descricao {
+    font-size: 16px;
+  }
+
+  .modal-fechar {
+    font-size: 20px;
+  }
+}
